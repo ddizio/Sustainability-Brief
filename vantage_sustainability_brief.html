@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sustainability Intelligence Brief — Vantage Specialty Chemicals · Issue 04-23-2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* VANTAGE BRAND PALETTE */
+    --fresh-green: #00B388;
+    --medium-green: #008264;
+    --dark-green: #038264;
+    --dark-blue: #015B9A;
+    --bright-green: #97C93C;
+    --blue: #57C8E7;
+    --orange: #F58568;
+    --yellow: #FCC976;
+    /* NEUTRALS */
+    --charcoal: #161617;
+    --dark-grey: #3D3B3E;
+    --medium-grey: #4D4B4B;
+    --grey: #707071;
+    --bg-1: #FFFFFF;
+    --bg-2: #F6F9F8;
+    --bg-3: #E6E4E6;
+    --bg-4: #EFF5F3;
+    --rule: #E6E4E6;
+    --rule-soft: #EEF1F0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg-2);
+    color: var(--charcoal);
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 14.5px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  body { padding: 44px 24px 96px; }
+  .wrap { max-width: 1120px; margin: 0 auto; }
+
+  .masthead {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 32px;
+    padding-bottom: 22px;
+    border-bottom: 2px solid var(--medium-green);
+  }
+  .brand { display: flex; align-items: center; gap: 18px; }
+  .logo-wrap { flex-shrink: 0; }
+  .logo-wrap svg { display: block; height: 52px; width: auto; }
+  .wordmark { border-left: 1px solid var(--rule); padding-left: 18px; }
+  .wordmark h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--charcoal);
+  }
+  .wordmark .byline {
+    margin-top: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+  .wordmark .byline .dot { color: var(--fresh-green); margin: 0 7px; font-weight: 700; }
+  .wordmark .byline strong { color: var(--dark-green); font-weight: 600; }
+  .dateblock { text-align: right; }
+  .dateblock .day {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--medium-grey);
+    font-weight: 500;
+  }
+  .dateblock .iss {
+    margin-top: 5px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    color: var(--dark-green);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 18px 0 4px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 24px;
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--rule);
+    background: var(--bg-1);
+    color: var(--medium-grey);
+    font-weight: 500;
+  }
+  .pill strong { font-weight: 700; color: var(--charcoal); }
+  .pill.flag { background: #FEECE6; color: #C4452B; border-color: #F8CBBB; }
+  .pill.flag strong { color: #A83A24; }
+  .pill.priority { background: #E0F5EF; color: var(--dark-green); border-color: #B8E5D6; }
+  .pill.priority strong { color: var(--dark-green); }
+  .pill.secondary { background: #EBF6FB; color: var(--dark-blue); border-color: #C8E4EF; }
+  .pill.secondary strong { color: var(--dark-blue); }
+  .pill.tracked { background: var(--bg-3); color: var(--medium-grey); }
+  .pill.tracked strong { color: var(--charcoal); }
+  .pill.alert { background: #FEF1DC; color: #A66412; border-color: #F5DCA6; }
+  .pill.alert strong { color: #8C5410; }
+
+  section.panel {
+    background: var(--bg-1);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 22px;
+  }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--rule-soft);
+    margin-bottom: 8px;
+  }
+  .sec-head h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    color: var(--charcoal);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .sec-head h2 .eye {
+    width: 22px; height: 22px;
+    display: inline-grid; place-items: center;
+    color: var(--fresh-green);
+  }
+  .sec-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey);
+    font-weight: 500;
+  }
+
+  .watch-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .watch-item:last-child { border-bottom: none; padding-bottom: 6px; }
+  .date-chip {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #F8CBBB;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #C4452B;
+    background: #FEECE6;
+    text-align: center;
+    min-width: 70px;
+    align-self: start;
+    text-transform: uppercase;
+  }
+  .date-chip.ongoing { color: #A66412; background: #FEF1DC; border-color: #F5DCA6; }
+  .watch-copy { font-size: 13.5px; line-height: 1.62; color: var(--dark-grey); font-weight: 400; }
+  .watch-copy strong { color: var(--charcoal); font-weight: 600; }
+  .src {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--grey);
+    margin-left: 6px;
+  }
+  .src .name { color: var(--dark-green); font-weight: 500; }
+
+  .stories { display: grid; grid-template-columns: 1fr; gap: 0; }
+  .story {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 22px;
+  }
+  .story:last-child { border-bottom: none; }
+  .story-num {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--fresh-green);
+    letter-spacing: -0.03em;
+  }
+  .story-body h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    line-height: 1.28;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+  .story-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    color: var(--medium-grey);
+    background: var(--bg-3);
+    border: 1px solid transparent;
+  }
+  .tag.red { color: #A83A24; background: #FEECE6; }
+  .tag.green { color: var(--dark-green); background: #E0F5EF; }
+  .tag.amber { color: #8C5410; background: #FEF1DC; }
+  .tag.us { color: var(--dark-blue); background: #EBF6FB; }
+  .tag.eu { color: #7C2D12; background: #F8E4D4; }
+  .tag.positive { color: var(--dark-green); background: #E0F5EF; border-color: var(--fresh-green); }
+  .story-body p { font-size: 14px; line-height: 1.62; color: var(--dark-grey); margin-bottom: 10px; font-weight: 400; }
+  .so-what {
+    background: #EFF7F4;
+    border-left: 3px solid var(--fresh-green);
+    padding: 12px 16px;
+    margin-top: 10px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    border-radius: 0 4px 4px 0;
+  }
+  .so-what .label {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dark-green);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .so-what.action {
+    background: #FEF5E5;
+    border-left-color: var(--orange);
+  }
+  .so-what.action .label { color: #A66412; }
+  .so-what strong { color: var(--charcoal); font-weight: 600; }
+
+  .nz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .nz-card {
+    padding: 16px 18px;
+    background: var(--bg-2);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--fresh-green);
+    border-radius: 0 0 6px 6px;
+  }
+  .nz-card .co {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .nz-card .target {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.03em;
+    color: var(--dark-green);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .nz-card p { font-size: 12.5px; line-height: 1.5; color: var(--dark-grey); font-weight: 400; }
+
+  table.tracker {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 13px;
+  }
+  .tracker thead th {
+    text-align: left;
+    padding: 12px 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--grey);
+    font-weight: 500;
+    border-bottom: 2px solid var(--medium-green);
+    background: transparent;
+  }
+  .tracker tbody td {
+    padding: 14px 10px;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+    color: var(--dark-grey);
+  }
+  .tracker tbody tr:last-child td { border-bottom: none; }
+  .tracker tbody tr:hover { background: var(--bg-4); }
+  .tracker td.bill { font-weight: 600; color: var(--charcoal); }
+  .tracker td.bill small {
+    display: block; font-weight: 400; color: var(--grey); margin-top: 3px;
+    font-size: 11.5px; line-height: 1.4;
+  }
+  .tracker td.bill strong { color: var(--dark-green); }
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    padding: 4px 9px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .status .bubble { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+  .s-active { background: #E0F5EF; color: var(--dark-green); }
+  .s-active .bubble { background: var(--fresh-green); }
+  .s-consult { background: #FEF1DC; color: #A66412; }
+  .s-consult .bubble { background: var(--orange); }
+  .s-injunction { background: #FEECE6; color: #A83A24; }
+  .s-injunction .bubble { background: #C4452B; }
+  .s-intro { background: var(--bg-3); color: var(--medium-grey); }
+  .s-intro .bubble { background: var(--grey); }
+  .s-monitor { background: #EBF6FB; color: var(--dark-blue); }
+  .s-monitor .bubble { background: var(--dark-blue); }
+
+  .conf {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    color: var(--medium-grey);
+    font-weight: 500;
+  }
+  .conf .bars { display: inline-flex; gap: 2px; }
+  .conf .bars span { width: 3px; height: 12px; background: var(--bg-3); border-radius: 1px; }
+  .conf.hi .bars span:nth-child(-n+5) { background: var(--fresh-green); }
+  .conf.med-hi .bars span:nth-child(-n+4) { background: var(--medium-green); }
+  .conf.med .bars span:nth-child(-n+3) { background: var(--yellow); }
+  .conf.low-med .bars span:nth-child(-n+2) { background: var(--orange); }
+  .conf.low .bars span:nth-child(-n+1) { background: #C4452B; }
+
+  .deadline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .deadline-card {
+    padding: 18px 20px;
+    border-radius: 8px;
+    background: var(--bg-2);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--yellow);
+    position: relative;
+  }
+  .deadline-card.critical { border-left-color: #C4452B; background: #FEF7F4; }
+  .deadline-card.strategic { border-left-color: var(--fresh-green); background: #EFF7F4; }
+  .deadline-card .d-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .deadline-card .d-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.3;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+    letter-spacing: -0.005em;
+  }
+  .deadline-card .d-note {
+    font-size: 12.5px;
+    color: var(--dark-grey);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  .deadline-card .countdown {
+    position: absolute;
+    top: 16px; right: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: #C4452B;
+    font-weight: 700;
+  }
+  .deadline-card.strategic .countdown { color: var(--dark-green); }
+  .deadline-card:not(.critical):not(.strategic) .countdown { color: #A66412; }
+
+  footer {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 2px solid var(--medium-green);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--grey);
+    letter-spacing: 0.04em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  footer .legend span { display: inline-block; margin-right: 14px; }
+  footer .legend .key {
+    display: inline-block;
+    width: 9px; height: 9px; border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  footer .right { text-align: right; }
+  footer .right strong { color: var(--dark-green); font-weight: 600; }
+
+  .caption {
+    font-size: 14px;
+    color: var(--medium-grey);
+    margin: 14px 0 22px;
+    max-width: 780px;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  .caption em { color: var(--dark-green); font-style: normal; font-weight: 500; }
+
+  @media (max-width: 720px) {
+    body { padding: 24px 16px 60px; }
+    .masthead { grid-template-columns: 1fr; }
+    .dateblock { text-align: left; }
+    .wordmark h1 { font-size: 22px; }
+    .wordmark { border-left: none; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 14px; }
+    .brand { flex-direction: column; align-items: flex-start; }
+    section.panel { padding: 20px 18px; }
+    .watch-item, .story { grid-template-columns: 1fr; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="brand">
+      <div class="logo-wrap">
+        <svg viewBox="0 0 280 80" xmlns="http://www.w3.org/2000/svg" aria-label="Vantage">
+          <defs>
+            <clipPath id="drop-clip">
+              <path d="M34 4 C34 4, 8 32, 8 52 C8 66.5, 19.7 78, 34 78 C48.3 78, 60 66.5, 60 52 C60 32, 34 4, 34 4 Z"/>
+            </clipPath>
+          </defs>
+          <path d="M34 4 C34 4, 8 32, 8 52 C8 66.5, 19.7 78, 34 78 C48.3 78, 60 66.5, 60 52 C60 32, 34 4, 34 4 Z" fill="#97C93C"/>
+          <g clip-path="url(#drop-clip)">
+            <circle cx="20" cy="60" r="17" fill="#B9DB71" opacity="0.92"/>
+            <circle cx="46" cy="62" r="14" fill="#00B388" opacity="0.88"/>
+            <circle cx="36" cy="48" r="11" fill="#038264" opacity="0.95"/>
+            <circle cx="28" cy="43" r="6" fill="#FFFFFF" opacity="0.75"/>
+          </g>
+          <text x="72" y="60" font-family="Poppins, sans-serif" font-weight="600" font-size="52" fill="#00B388" letter-spacing="-1">Vantage</text>
+          <text x="258" y="26" font-family="Poppins, sans-serif" font-weight="500" font-size="11" fill="#00B388">®</text>
+        </svg>
+      </div>
+      <div class="wordmark">
+        <h1>Sustainability Intelligence Brief</h1>
+        <div class="byline">Director of Sustainability<span class="dot">●</span><strong>Vantage Specialty Chemicals</strong></div>
+      </div>
+    </div>
+    <div class="dateblock">
+      <div class="day">Thursday, April 23, 2026</div>
+      <div class="iss">Weekly Brief · Issue 04-23-2026</div>
+    </div>
+  </header>
+
+  <p class="caption">Curated intelligence on the regulatory, scientific, and commercial sustainability currents moving through our industry — filtered for what matters to a <em>naturally-derived, surfactant-led specialty chemistry business</em> operating primarily in the U.S. with material EU exposure via Leuna.</p>
+
+  <div class="pills">
+    <span class="pill"><strong>9</strong> Stories</span>
+    <span class="pill flag"><strong>5</strong> Vantage Red Flags</span>
+    <span class="pill priority"><strong>U.S.</strong> Priority</span>
+    <span class="pill secondary"><strong>EU</strong> Secondary</span>
+    <span class="pill tracked"><strong>10</strong> Bills Tracked</span>
+    <span class="pill alert"><strong>4</strong> Deadline Alerts</span>
+  </div>
+
+  <section class="panel">
+    <div class="sec-head">
+      <h2>
+        <span class="eye">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/>
+          </svg>
+        </span>
+        Watch This Week
+      </h2>
+      <div class="sec-meta">Apr 23 – 30, 2026</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="date-chip">APR 24</span>
+      <div class="watch-copy">
+        <strong>ECHA PFAS SEAC Consultation — Active Window</strong> — The Committee for Socio-Economic Analysis' draft opinion on the EU universal PFAS restriction is open for structured stakeholder input through May 25. Although Vantage's core chemistries (taurates, fatty acids, glycerin, ethoxylates) are not PFAS, the restriction's treatment of fluorinated surfactants, emulsifiers and co-located manufacturing could affect a small subset of industrial cleaning and metal-working intermediates. Coordinated industry input through Cefic remains the recommended channel.<span class="src"><span class="name">ECHA</span></span>
+      </div>
+    </div>
+
+    <div class="watch-item">
+      <span class="date-chip">APR 27</span>
+      <div class="watch-copy">
+        <strong>CBAM Q2 2026 Certificate Price Publication</strong> — The European Commission is publishing quarterly CBAM certificate prices during the first definitive-phase year. Even though Vantage is not a direct importer of the current CBAM six (cement, iron/steel, aluminium, fertilizers, hydrogen, electricity), upstream exposure through purchased aluminum packaging, steel drums, and hydrogen-dependent suppliers at Leuna is worth tracking as a leading indicator for the expected 2028 CBAM expansion to organic chemicals.<span class="src"><span class="name">DG TAXUD</span></span>
+      </div>
+    </div>
+
+    <div class="watch-item">
+      <span class="date-chip">APR 29</span>
+      <div class="watch-copy">
+        <strong>Chemicals India Conference — Mumbai (Apr 29–30)</strong> — APAC tertiary-market event. Relevant for competitive intelligence on naturally-derived surfactant expansion in the region (Galaxy Surfactants, Godrej, Musim Mas). Monitor competitor announcements on palm-free or non-palm surfactant chemistries given EUDR pressure pushing some producers to relocate ethoxylation and sulfation capacity to Asia.<span class="src"><span class="name">Specialty Chemicals Magazine</span></span>
+      </div>
+    </div>
+
+    <div class="watch-item">
+      <span class="date-chip">APR 30</span>
+      <div class="watch-copy">
+        <strong>EU EUDR Simplification Review — Commission Deadline</strong> — The European Commission is required to deliver its EUDR simplification review to Parliament by end of April. Outcome will shape geolocation, due-diligence, and mass-balance treatment for the palm oil, palm kernel oil and glycerol value chains that sit at the heart of Vantage's oleochemical feedstock base. Large-operator compliance deadline remains December 30, 2026.<span class="src"><span class="name">European Commission</span></span>
+      </div>
+    </div>
+
+    <div class="watch-item">
+      <span class="date-chip ongoing">ONGOING</span>
+      <div class="watch-copy">
+        <strong>California SB 261 Injunction Watch — 9th Circuit Pending</strong> — At ~$800–900MM global revenue, Vantage is above the $500MM SB 261 threshold and would be in direct scope for climate-related financial risk disclosure the moment the preliminary injunction is lifted. CARB is currently accepting voluntary submissions via public docket (opened Dec 1, 2025). The Ninth Circuit heard oral argument in January 2026.<span class="src"><span class="name">CARB / 9th Circuit</span></span>
+      </div>
+    </div>
+
+    <div class="watch-item">
+      <span class="date-chip ongoing">ONGOING</span>
+      <div class="watch-copy">
+        <strong>RSPO 2024 Principles &amp; Criteria — 39 Days to Mandatory (Jun 1)</strong> — The revised RSPO P&amp;C become fully mandatory on June 1, 2026. Vantage Leuna is already RSPO SCCS certified under the Mass Balance model, but the 2024 revision tightens labor, smallholder-inclusion, and GHG-tracking criteria. Expect re-audit scope to expand at the next certification cycle.<span class="src"><span class="name">RSPO</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="sec-head">
+      <h2>
+        <span class="eye">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/>
+          </svg>
+        </span>
+        This Week's Stories
+      </h2>
+      <div class="sec-meta">9 items · Annotated for Vantage</div>
+    </div>
+
+    <div class="stories">
+
+      <div class="story">
+        <div class="story-num">01</div>
+        <div class="story-body">
+          <h3>EU PFAS Restriction Enters Decisive Phase — SEAC Opens 60-Day Consultation</h3>
+          <div class="story-tags">
+            <span class="tag red">Vantage Red Flag</span>
+            <span class="tag eu">EU</span>
+            <span class="tag">Regulatory</span>
+          </div>
+          <p>ECHA's Risk Assessment Committee adopted its final opinion on March 3 concluding that the PFAS class warrants group-wide restriction. SEAC agreed its draft opinion March 11 and opened a 60-day public consultation on March 26. The Commission is politically committed to a broad phase-out; the open question is the structure of derogations, transition periods (proposed 18 months to 13.5 years depending on sector), and the treatment of PFAS manufacturing as a standalone sector.</p>
+          <div class="so-what">
+            <span class="label">What it means for Vantage:</span> Our core surfactant chemistries — taurates, sulfosuccinates, ethoxylates, sarcosinates — are fundamentally non-PFAS and gain competitive tailwind as formulators seek PFAS alternatives, particularly in metalworking fluids, firefighting foams (already restricted separately), industrial cleaning, and textile finishing. Leuna's taurate franchise is especially well-positioned given taurates' role as mild, biodegradable substitutes in personal care and industrial cleaning formulations historically served by fluorosurfactants.
+          </div>
+          <div class="so-what action">
+            <span class="label">Recommended action:</span> Commission a one-page commercial brief positioning METAUPON™ NMT and related taurate/sulfosuccinate lines as drop-in PFAS-free alternatives for key industrial cleaning and I&amp;I accounts. Coordinate through Cefic on the SEAC consultation by May 25; avoid standalone submission that could draw scrutiny to non-PFAS sulfur chemistries.
+          </div>
+        </div>
+      </div>
+
+      <div class="story">
+        <div class="story-num">02</div>
+        <div class="story-body">
+          <h3>California Climate Laws — SB 253 Out of Scope, SB 261 is the Real Watch-Item for Vantage</h3>
+          <div class="story-tags">
+            <span class="tag us">U.S. Priority</span>
+            <span class="tag red">Vantage Red Flag</span>
+            <span class="tag">Climate Disclosure</span>
+          </div>
+          <p>CARB unanimously adopted the initial implementing regulation on February 26 and held its fourth public workshop on March 23 focused on 2027-and-beyond Scope 3 framework, organizational boundaries, GHG accounting methods, and limited-assurance standards. The Ninth Circuit declined to enjoin SB 253 but did pause SB 261 enforcement pending the constitutional challenge. SB 253 covers entities above $1B global revenue doing business in California; SB 261 applies a lower $500MM threshold.</p>
+          <div class="so-what">
+            <span class="label">What it means for Vantage:</span> At ~$800–900MM global revenue (FY24 &amp; FY25), Vantage sits <strong>below SB 253's $1B threshold</strong> but squarely <strong>above SB 261's $500MM threshold</strong>. SB 253 is therefore an indirect concern via customer Scope 3 cascades, but SB 261 is a direct compliance obligation the moment the Ninth Circuit lifts the injunction. Our climate-related financial risk disclosure (TCFD- or IFRS S2-aligned) would then be due on the next CARB-set schedule, which could be as little as six months from ruling. Given our growth trajectory, the $1B SB 253 threshold is also a medium-term planning horizon, not a permanent exclusion.
+          </div>
+          <div class="so-what action">
+            <span class="label">Recommended action:</span> Begin drafting the SB 261 narrative disclosure now using the voluntary-submission framework CARB published in December — this is the lowest-regret path and positions us to file rapidly if the injunction is lifted. In parallel, stand up a Scope 3 "Supplier Response Package" for the SB 253 customer cascade (top-50 SKU product carbon footprints, Leuna Scope 1 &amp; 2, RSPO Mass Balance documentation).
+          </div>
+        </div>
+      </div>
+
+      <div class="story">
+        <div class="story-num">03</div>
+        <div class="story-body">
+          <h3>EU CBAM Definitive Phase Live — Organic Chemicals Eyed for 2028 Expansion</h3>
+          <div class="story-tags">
+            <span class="tag eu">EU</span>
+            <span class="tag red">Vantage Red Flag</span>
+            <span class="tag">Carbon Pricing</span>
+          </div>
+          <p>CBAM's definitive phase began January 1, 2026, covering cement, iron/steel, aluminium, fertilizers, hydrogen and electricity. The first certificate surrender will occur by September 30, 2027 covering 2026 imports. Analysis from IISD and the European Commission indicates organic chemicals, polymers, and plastics are the most likely candidates for CBAM expansion, with a legislative proposal tabled in December 2025 for downstream expansion as early as 2028. Under a full-alignment scenario, U.S. share of CBAM-covered EU imports would rise from ~4% to 13–14%.</p>
+          <div class="so-what">
+            <span class="label">What it means for Vantage:</span> Two vectors of exposure. First, upstream — Leuna's purchased hydrogen, steam, nitrogen, and packaging materials all touch CBAM-covered inputs, which will bleed into our Leuna cost base through supplier pass-through over the next 18–24 months. Second, and more strategic — our U.S. manufacturing footprint (IL, NJ, OH, Gurnee) becomes a relative cost liability for any product we ship into the EU once organic chemicals are added. A ton of fatty acid made with U.S. grid electricity carries materially higher embedded carbon than one made at Leuna on the German grid with on-site steam.
+          </div>
+          <div class="so-what action">
+            <span class="label">Recommended action:</span> Begin CBAM scenario modeling now for our top-20 U.S.-to-EU SKUs at a range of EUA price trajectories ($70–$150/t). Evaluate whether strategic production shifts to Leuna become economic before 2028. Parallel-track: accelerate Scope 2 decarbonization at Leuna (PPAs, green steam) to reinforce its structural carbon advantage.
+          </div>
+        </div>
+      </div>
+
+      <div class="story">
+        <div class="story-num">04</div>
+        <div class="story-body">
+          <h3>EPA Postpones TSCA § 8(a)(7) PFAS Reporting to January 31, 2027</h3>
+          <div class="story-tags">
+            <span class="tag us">U.S. Priority</span>
+            <span class="tag amber">Deadline Shift</span>
+            <span class="tag">TSCA</span>
+          </div>
+          <p>On April 8, EPA Administrator Zeldin signed a final rule postponing the TSCA § 8(a)(7) PFAS data reporting start date to January 31, 2027 — the third extension. EPA is simultaneously evaluating proposed November 2025 scope amendments, including exemptions for imported articles, R&amp;D materials, impurities, byproducts, non-isolated intermediates, and PFAS manufactured in small quantities. Minnesota's state-level PFAS reporting mandate, however, took effect January 1, 2026 and remains unaffected.</p>
+          <div class="so-what">
+            <span class="label">What it means for Vantage:</span> Administrative relief, not substantive relief. Our R&amp;D and small-quantity position may ultimately benefit from the proposed de minimis and article exemptions, but the 2011–2022 look-back window is unchanged. Minnesota's mandate is already live and applies to intentionally-added PFAS in products distributed into the state — a scope check of our Personal Care and Food-contact release-agent portfolios against MN PFAS definitions is the immediate priority.
+          </div>
+          <div class="so-what action">
+            <span class="label">Recommended action:</span> Complete Minnesota PFAS product-scope screen by end of Q2. Continue the Section 8(a)(7) data preservation exercise — the substantive rule could land any time before January 2027 and the reporting window is only three months once it starts.
+          </div>
+        </div>
+      </div>
+
+      <div class="story">
+        <div class="story-num">05</div>
+        <div class="story-body">
+          <h3>EU CSRD Omnibus Finalized — Vantage Leuna Exits Direct Scope</h3>
+          <div class="story-tags">
+            <span class="tag eu">EU</span>
+            <span class="tag positive">Positive</span>
+            <span class="tag">Reporting</span>
+          </div>
+          <p>The Omnibus Directive was adopted by the Council on February 24, published February 26, and enters into force March 18, 2026. Scope thresholds are raised to 1,000 FTE and €450M net turnover for EU entities. ESRS data points are cut by roughly 70% (from 1,073 to 320). Value-chain information requests from CSRD-reporting partners are capped at the VSME voluntary standard for sub-1,000-FTE suppliers. First application for the new scope begins FY2027.</p>
+          <div class="so-what">
+            <span class="label">What it means for Vantage:</span> Clear positive. Vantage Leuna GmbH (~130 employees, ~€60M revenue) falls well below the revised thresholds and exits direct CSRD scope. Our EU customer base (Henkel, Unilever, L'Oréal, BASF) remains in scope and will continue to pass requirements through their supply chain — but those requests are now legally capped at the VSME scope. This measurably reduces the asymmetric reporting burden that was falling on smaller players like us.
+          </div>
+          <div class="so-what action">
+            <span class="label">Recommended action:</span> Adopt the VSME voluntary standard as Vantage Leuna's reporting framework of choice; use it as the defensive ceiling when responding to EU customer sustainability questionnaires. Save the differential effort for value-creating disclosures (product carbon footprints, RSPO, ISCC).
+          </div>
+        </div>
+      </div>
+
+      <div class="story">
+        <div class="story-num">06</div>
+        <div class="story-body">
+          <h3>EUDR Implementation — Large-Operator Compliance Eight Months Out</h3>
+          <div class="story-tags">
+            <span class="tag eu">EU</span>
+            <span class="tag red">Vantage Red Flag</span>
+            <span class="tag">Supply Chain</span>
+          </div>
+          <p>EUDR compliance for large and medium operators lands December 30, 2026, with micro and small operators following June 30, 2027. The regulation's scope explicitly includes palm kernel oil, palm oil derivatives, glycerol, and palm-based fatty acids under HS codes 1511, 1513, 1520, and 1516. December 2025 amendments simplified due-diligence for low-risk country sourcing and introduced a Commission simplification review due April 30. Mass Balance remains restricted as a compliance pathway; plot-level geolocation is required.</p>
+          <div class="so-what">
+            <span class="label">What it means for Vantage:</span> This is the single largest supply-chain compliance lift we face in 2026. Leuna's taurate and surfactant production draws on coconut and palm-kernel-oil derivatives; our Chicago splitting plant and global oleochemical feedstocks include palm-derived glycerin and fatty acids. RSPO Mass Balance certification alone will not satisfy EUDR — plot-level polygon geolocation back to specific estates is required. The industry's alternative is to import already-ethoxylated or sulfonated intermediates from outside the EU, which depends on whether downstream derivatives get added to scope in the June 2026 HS code review.
+          </div>
+          <div class="so-what action">
+            <span class="label">Recommended action:</span> Elevate this to board-level visibility. Commission an external EUDR readiness audit of Leuna's palm-kernel-oil and coconut-oil supply chain in May. Engage with Musim Mas, Wilmar, and our other upstream oleochemical suppliers on geolocation data delivery — the suppliers without polygon-level data by Q3 cannot be relied upon for 2027 Leuna production planning.
+          </div>
+        </div>
+      </div>
+
+      <div class="story">
+        <div class="story-num">07</div>
+        <div class="story-body">
+          <h3>Forever Chemical Regulation and Accountability Act (S. 4153) Introduced</h3>
+          <div class="story-tags">
+            <span class="tag us">U.S.</span>
+            <span class="tag">Legislation</span>
+            <span class="tag amber">Low-Probability / High-Impact</span>
+          </div>
+          <p>Senator Durbin (D-IL) and Rep. McCollum (D-MN) introduced companion bills March 19 establishing an "essential use" framework phasing out non-essential PFAS within 10 years, with accelerated four-year bans on PFAS in consumer products including cosmetics and food packaging. The bill would require annual manufacturer phase-out plans, citizen-suit authority, and environmental release prohibitions after 10 years. Passage odds are low in the current Congress, but it codifies the "essential use" framing that is already shaping EU policy and several state laws.</p>
+          <div class="so-what">
+            <span class="label">What it means for Vantage:</span> The legislative probability is low this session, but the framing matters. "Essential use" is emerging as the dominant regulatory concept globally and will flow through state legislatures, procurement rules, and customer policies regardless of federal action. The four-year cosmetics and food-packaging accelerated ban, if adopted at any level, would create direct tailwind for our non-PFAS surfactant and release-agent portfolios.
+          </div>
+          <div class="so-what action">
+            <span class="label">Recommended action:</span> Prepare a Vantage white paper documenting our PFAS-free portfolio and essential-use analysis of our core chemistries. This is useful both defensively (customer questionnaires) and offensively (competitive displacement of fluorosurfactant-adjacent product lines at Innospec, Dow).
+          </div>
+        </div>
+      </div>
+
+      <div class="story">
+        <div class="story-num">08</div>
+        <div class="story-body">
+          <h3>EU ETS Review 2026 Opens — ETS2 Reporting Year Live in Germany</h3>
+          <div class="story-tags">
+            <span class="tag eu">EU</span>
+            <span class="tag">Carbon Pricing</span>
+            <span class="tag">Leuna</span>
+          </div>
+          <p>Verified 2025 EU ETS emissions data published April 10 shows a 1.3% overall reduction; energy-intensive industry down 2.5%. The statutory 2026 EU ETS review is now formally open, with Commission proposals expected mid-year. Separately, EU ETS 2 (covering fuels for buildings, road transport, and smaller industry not covered by ETS1) is in its parallel 2024–2026 reporting phase in Germany under the DEHSt, with full surrender obligations beginning 2027. EWI modelling forecasts ETS2 equilibrium pricing of €120/tCO₂ in 2027, rising above €200/tCO₂ by 2035.</p>
+          <div class="so-what">
+            <span class="label">What it means for Vantage:</span> Leuna sits beneath the direct EU ETS1 threshold for most processes but is squarely inside the ETS2 scope for natural gas and other combustion fuels. The 2027 inflection is material — a €120/tCO₂ price on our Leuna gas consumption translates to a meaningful operating-cost headwind, even before any onward customer-side carbon costs are factored in.
+          </div>
+          <div class="so-what action">
+            <span class="label">Recommended action:</span> Fold ETS2 price scenarios into Leuna's 2027 budget process. Evaluate on-site green steam and biogas offtake contracts at Leuna Chemical Park as hedge strategies. Monitor German government's July 15, 2026 decision on whether to postpone ETS2 start from 2027 to 2028.
+          </div>
+        </div>
+      </div>
+
+      <div class="story">
+        <div class="story-num">09</div>
+        <div class="story-body">
+          <h3>Net-Zero &amp; Commitments — Competitor Watch</h3>
+          <div class="story-tags">
+            <span class="tag green">Competitive Intel</span>
+            <span class="tag">Net-Zero</span>
+            <span class="tag">Benchmarking</span>
+          </div>
+          <p>The gap between the most advanced specialty-chemicals decarbonization programs and the industry median continues to widen. Across Vantage's direct competitor set, the common pattern is SBTi-validated Scope 1 &amp; 2 targets for 2030, net-zero (Scope 1 &amp; 2) by 2050, and growing emphasis on Scope 3 supply-chain engagement. The meaningful differentiation increasingly sits in Scope 3 ambition and in "sustainable portfolio" revenue disclosure.</p>
+
+          <div class="nz-grid">
+            <div class="nz-card">
+              <div class="co">BASF</div>
+              <div class="target">Net-zero Scope 1 &amp; 2 by 2050</div>
+              <p>Freeport, TX Verbund site targeting 100% renewable imported electricity by end of 2026 via X-ELIO solar PPA (48MW). First North American Verbund to reach the milestone. Scope 3 intensity targets under SBTi review.</p>
+            </div>
+            <div class="nz-card">
+              <div class="co">Clariant</div>
+              <div class="target">Net-zero Scope 1 &amp; 2 by 2050</div>
+              <p>SBTi-validated 40% absolute reduction in Scope 1 &amp; 2 (2019 base) by 2030; 14% absolute Scope 3 reduction by 2030. Eight consecutive years on Dow Jones Sustainability Index.</p>
+            </div>
+            <div class="nz-card">
+              <div class="co">Nouryon</div>
+              <div class="target">SBTi-aligned; 2024 Sustainability Report</div>
+              <p>ERM CVS limited assurance over EcoVadis-reported KPIs. Active memberships in UN Global Compact, Responsible Care, RSPO, and Sustainable Chemistry 2030 (Hållbar Kemi).</p>
+            </div>
+            <div class="nz-card">
+              <div class="co">Stepan</div>
+              <div class="target">Published Q4 FY2026 8-K sustainability program</div>
+              <p>Direct surfactants competitor. New Pasadena, TX alkoxylation site commissioning (cost headwinds). Expanded agricultural and oilfield surfactants volumes — a segment where RSPO-credible supply is increasingly priced.</p>
+            </div>
+            <div class="nz-card">
+              <div class="co">Dow</div>
+              <div class="target">Carbon-neutral 2050; -5Mt CO₂/yr by 2030</div>
+              <p>Path-to-Zero project portfolio focused on Fort Saskatchewan (Canada) cracker. Direct CBAM exposure on EU-bound basic chemicals creates commercial tension with the same rules that could eventually benefit European-manufactured specialty derivatives.</p>
+            </div>
+            <div class="nz-card">
+              <div class="co">Sasol</div>
+              <div class="target">30% Scope 1 &amp; 2 reduction by 2030</div>
+              <p>Secunda CTL transition remains the industry's largest Scope 1 decarbonization challenge. Sasol's South African footprint limits direct head-to-head comparison but its surfactants business (LAB, alcohols, ethoxylates) competes directly into Leuna's European customer base.</p>
+            </div>
+          </div>
+          <div class="so-what">
+            <span class="label">What it means for Vantage:</span> We are positioned on the "naturally-derived" axis as a differentiator, but our public climate posture lags the peer set on two dimensions: (1) no SBTi-validated targets; (2) limited Scope 3 disclosure. For a business selling into personal-care majors with 2030 Scope 3 targets of their own, this is becoming a commercial gap, not just a reporting one.
+          </div>
+          <div class="so-what action">
+            <span class="label">Recommended action:</span> Board-level discussion on SBTi commitment timing in the next quarterly cycle. An SBTi "committed" status (not yet validated) is achievable in 90 days and closes most of the customer-facing gap at low cost. Pair with a formal product carbon footprint methodology aligned with Together for Sustainability (TfS) PCF Guideline — which is becoming the de facto standard across our customer base.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="sec-head">
+      <h2>
+        <span class="eye">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 3h18v4H3z"/><path d="M5 11h14v10H5z"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="18" x2="12" y2="18"/>
+          </svg>
+        </span>
+        Legislation Tracker
+      </h2>
+      <div class="sec-meta">10 Active Files · Confidence Index</div>
+    </div>
+
+    <table class="tracker">
+      <thead>
+        <tr>
+          <th style="width: 28%;">Bill / Rule</th>
+          <th style="width: 10%;">Jurisdiction</th>
+          <th style="width: 15%;">Status</th>
+          <th style="width: 12%;">Confidence</th>
+          <th>Vantage Read</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="bill">CA SB 253<small>Climate Corporate Data Accountability Act</small></td>
+          <td>California</td>
+          <td><span class="status s-active"><span class="bubble"></span>Enacted</span></td>
+          <td><span class="conf hi">HIGH <span class="bars"><span></span><span></span><span></span><span></span><span></span></span></span></td>
+          <td>Below $1B direct threshold. Indirect exposure via Scope 3 customer cascade accelerating to Aug 10 deadline.</td>
+        </tr>
+        <tr>
+          <td class="bill">CA SB 261<small>Climate-Related Financial Risk Act</small></td>
+          <td>California</td>
+          <td><span class="status s-injunction"><span class="bubble"></span>Injunction</span></td>
+          <td><span class="conf med">MEDIUM <span class="bars"><span></span><span></span><span></span><span></span><span></span></span></span></td>
+          <td><strong>Direct Vantage obligation if injunction lifts</strong> — $500MM threshold exceeded. 9th Circuit ruling expected H2 2026.</td>
+        </tr>
+        <tr>
+          <td class="bill">EU REACH PFAS Restriction<small>Universal PFAS Annex XV dossier</small></td>
+          <td>EU / EEA</td>
+          <td><span class="status s-consult"><span class="bubble"></span>Consultation</span></td>
+          <td><span class="conf med-hi">MED-HIGH <span class="bars"><span></span><span></span><span></span><span></span><span></span></span></span></td>
+          <td>Core Vantage chemistries unaffected; narrow exposure in specialty intermediates. Competitive tailwind for taurates.</td>
+        </tr>
+        <tr>
+          <td class="bill">EU CSRD / CSDDD Omnibus I<small>Directive 2026/470</small></td>
+          <td>EU</td>
+          <td><span class="status s-active"><span class="bubble"></span>In Force Mar 18</span></td>
+          <td><span class="conf hi">HIGH <span class="bars"><span></span><span></span><span></span><span></span><span></span></span></span></td>
+          <td>Leuna exits direct scope (1,000 FTE / €450M threshold). Value-chain cap at VSME reduces trickle-down load.</td>
+        </tr>
+        <tr>
+          <td class="bill">EU CBAM Definitive Phase<small>Regulation 2023/956, amended 2025/2083</small></td>
+          <td>EU</td>
+          <td><span class="status s-active"><span class="bubble"></span>Live Jan 1</span></td>
+          <td><span class="conf hi">HIGH <span class="bars"><span></span><span></span><span></span><span></span><span></span></span></span></td>
+          <td>No direct VSC obligations today; 2028 organic chemicals expansion proposal is the watch-item.</td>
+        </tr>
+        <tr>
+          <td class="bill">EU ETS2<small>Buildings, transport, small industry</small></td>
+          <td>EU / DE</td>
+          <td><span class="status s-active"><span class="bubble"></span>Reporting</span></td>
+          <td><span class="conf hi">HIGH <span class="bars"><span></span><span></span><span></span><span></span><span></span></span></span></td>
+          <td>Leuna natural gas and heating fuels in scope. Full surrender 2027. Model €120/tCO₂ base case.</td>
+        </tr>
+        <tr>
+          <td class="bill">EU Deforestation Regulation<small>EUDR · Regulation 2023/1115</small></td>
+          <td>EU</td>
+          <td><span class="status s-active"><span class="bubble"></span>Compliance</span></td>
+          <td><span class="conf hi">HIGH <span class="bars"><span></span><span></span><span></span><span></span><span></span></span></span></td>
+          <td>Largest 2026 compliance lift for Leuna. Palm-kernel and glycerol supply chain geolocation required by Dec 30.</td>
+        </tr>
+        <tr>
+          <td class="bill">TSCA § 8(a)(7) PFAS Reporting<small>40 CFR 705</small></td>
+          <td>U.S. Federal</td>
+          <td><span class="status s-monitor"><span class="bubble"></span>Delayed</span></td>
+          <td><span class="conf med">MEDIUM <span class="bars"><span></span><span></span><span></span><span></span><span></span></span></span></td>
+          <td>Third extension to Jan 2027. Proposed exemptions for articles, R&amp;D, impurities may materially narrow scope.</td>
+        </tr>
+        <tr>
+          <td class="bill">U.S. S.4153 (Durbin/McCollum)<small>Forever Chemical Regulation &amp; Accountability Act 2026</small></td>
+          <td>U.S. Federal</td>
+          <td><span class="status s-intro"><span class="bubble"></span>Introduced</span></td>
+          <td><span class="conf low">LOW <span class="bars"><span></span><span></span><span></span><span></span><span></span></span></span></td>
+          <td>Low passage probability this Congress, but "essential use" framing is already shaping state policy and customer expectations.</td>
+        </tr>
+        <tr>
+          <td class="bill">Minnesota PFAS Reporting<small>Amara's Law implementation</small></td>
+          <td>Minnesota</td>
+          <td><span class="status s-active"><span class="bubble"></span>Active</span></td>
+          <td><span class="conf hi">HIGH <span class="bars"><span></span><span></span><span></span><span></span><span></span></span></span></td>
+          <td>Live since Jan 1, 2026. Intentionally-added PFAS reporting mandate. Immediate screen of VSC portfolio required.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="panel">
+    <div class="sec-head">
+      <h2>
+        <span class="eye">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </span>
+        Deadline Watch
+      </h2>
+      <div class="sec-meta">4 Alerts · Next 8 Months</div>
+    </div>
+
+    <div class="deadline-grid">
+      <div class="deadline-card critical">
+        <span class="countdown">~ 32 DAYS</span>
+        <div class="d-date">May 25, 2026</div>
+        <div class="d-title">ECHA PFAS SEAC Consultation Closes</div>
+        <div class="d-note">Final window for socio-economic submissions on the EU PFAS universal restriction. Submit via Cefic.</div>
+      </div>
+
+      <div class="deadline-card">
+        <span class="countdown">~ 39 DAYS</span>
+        <div class="d-date">June 1, 2026</div>
+        <div class="d-title">RSPO 2024 P&amp;C Fully Mandatory</div>
+        <div class="d-note">Revised Principles &amp; Criteria apply to all certified operations. Prepare for expanded Leuna re-audit scope.</div>
+      </div>
+
+      <div class="deadline-card critical">
+        <span class="countdown">~ 109 DAYS</span>
+        <div class="d-date">August 10, 2026</div>
+        <div class="d-title">Customer SB 253 Filing Deadline</div>
+        <div class="d-note">Final wave of customer Scope 1 &amp; 2 filings. Peak window for Scope 3 supplier data requests. Response package must be ready by end of Q2.</div>
+      </div>
+
+      <div class="deadline-card strategic">
+        <span class="countdown">~ 251 DAYS</span>
+        <div class="d-date">December 30, 2026</div>
+        <div class="d-title">EUDR Compliance — Large Operators</div>
+        <div class="d-note">Palm-kernel, glycerol, and palm-fatty-acid value chain geolocation required. Highest-stakes 2026 compliance milestone for Leuna.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="legend">
+      <span><span class="key" style="background: #C4452B;"></span>Red Flag</span>
+      <span><span class="key" style="background: var(--orange);"></span>Alert / Watch</span>
+      <span><span class="key" style="background: var(--fresh-green);"></span>Opportunity</span>
+      <span><span class="key" style="background: var(--dark-blue);"></span>Monitored</span>
+    </div>
+    <div class="right">Prepared for internal distribution · <strong>Vantage Specialty Chemicals</strong> · Next brief: Apr 30, 2026</div>
+  </footer>
+
+</div>
+</body>
+</html>
